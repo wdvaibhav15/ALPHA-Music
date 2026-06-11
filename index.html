@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODE-Alpha — Music Player</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">CODE-Alpha</div>
+      <div class="autoplay-toggle" onclick="toggleAutoplay()">
+        <div class="toggle-switch" id="autoplaySwitch">
+          <div class="toggle-knob"></div>
+        </div>
+        <span id="autoplayLabel">AUTOPLAY</span>
+      </div>
+    </div>
+
+    <!-- Artwork + Song Meta -->
+    <div class="artwork-section">
+      <div class="album-art" id="albumArt">
+        <div class="album-art-inner" id="artEmoji">🎵</div>
+        <div class="art-dot"></div>
+      </div>
+      <div class="song-meta">
+        <div class="song-title" id="songTitle">Select a Track</div>
+        <div class="song-artist" id="songArtist">— ARTIST —</div>
+        <div class="song-album" id="songAlbum">Album Name</div>
+        <div class="song-badge" id="songGenre">GENRE</div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+      <div class="progress-bar" id="progressBar" onclick="seekTo(event)">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="time-row">
+        <span id="currentTime">0:00</span>
+        <span id="totalTime">0:00</span>
+      </div>
+    </div>
+
+    <!-- Playback Controls -->
+    <div class="controls">
+      <button class="ctrl-btn" id="shuffleBtn" onclick="toggleShuffle()" title="Shuffle">⇄</button>
+      <button class="ctrl-btn" onclick="prevTrack()" title="Previous">⏮</button>
+      <button class="ctrl-btn play-btn" id="playBtn" onclick="togglePlay()" title="Play/Pause">▶</button>
+      <button class="ctrl-btn" onclick="nextTrack()" title="Next">⏭</button>
+      <button class="ctrl-btn" id="repeatBtn" onclick="toggleRepeat()" title="Repeat">↻</button>
+    </div>
+
+    <!-- Volume Control -->
+    <div class="volume-section">
+      <span class="vol-icon" id="volIcon">🔊</span>
+      <input type="range" class="volume-slider" id="volSlider" min="0" max="100" value="80" oninput="setVolume(this.value)">
+      <span class="vol-pct" id="volPct">80%</span>
+    </div>
+
+    <!-- Playlist -->
+    <div class="playlist-section">
+      <div class="playlist-header">
+        <span class="playlist-label">Playlist</span>
+        <span class="playlist-count" id="playlistCount">8 tracks</span>
+      </div>
+      <div id="playlist"></div>
+    </div>
+
+  </div>
+  
+  <footer class="site-footer">
+    Made with ❤️ for CODE-Alpha
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
